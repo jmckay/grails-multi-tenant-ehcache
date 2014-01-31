@@ -16,7 +16,7 @@ grails.project.dependency.resolution = {
 
         // uncomment the below to enable remote dependency resolution
         // from public Maven repositories
-        //mavenLocal()
+        mavenLocal()
         //mavenCentral()
         //mavenRepo "http://snapshots.repository.codehaus.org"
         //mavenRepo "http://repository.codehaus.org"
@@ -28,5 +28,17 @@ grails.project.dependency.resolution = {
 
         // runtime 'mysql:mysql-connector-java:5.1.5'
     }
+    plugins {
+        build(":release:3.0.1",
+                ":rest-client-builder:1.0.3") {
+          export = false
+        }
 
+        build ":tomcat:7.0.47"
+
+        compile ":falcone-util:1.2-DEV"
+        compile ":dynamic-controller:0.4"
+        compile ":hibernate:3.6.10.6"
+        compile ":multi-tenant-core:1.0.6-DEV"
+    }
 }
